@@ -26,6 +26,7 @@ namespace todo_backend.DependencyInjections
         {
             Todo todo = _todoContext.Todos.FirstOrDefault(x => x.Id == id);
             _todoContext.Todos.Remove(todo);
+            _todoContext.SaveChanges();
         }
 
         public IEnumerable<Todo> GetTodos()
@@ -36,8 +37,8 @@ namespace todo_backend.DependencyInjections
         public void UpdateTodo(int id, Todo todo)
         {
             Todo foundTodo = _todoContext.Todos.FirstOrDefault(x => x.Id == id);
-            foundTodo.Description = todo.Description;
-            foundTodo.Title = todo.Title;
+            foundTodo.IsCompleted = todo.IsCompleted;
+            
             _todoContext.SaveChanges();
 
         }
