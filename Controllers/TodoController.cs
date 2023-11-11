@@ -14,10 +14,12 @@ namespace todo_backend.Controllers
     public class TodoController : ApiController
     {
         IBusinessLayer _businessLayer;
+        HttpResponseMessage _response;
 
-        public TodoController(IBusinessLayer businessLayer)
+        public TodoController(IBusinessLayer businessLayer, HttpResponseMessage response)
         {
             _businessLayer = businessLayer;
+            _response = response;
         }
         public TodoController()
         {
@@ -26,13 +28,16 @@ namespace todo_backend.Controllers
         // GET api/values
         public IHttpActionResult Get()
         {
+
             try
             {
                 return Ok(_businessLayer.GetAllTodo());
             }
             catch (Exception ex)
             {
-                return NotFound();
+                 _response = Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+
+                return ResponseMessage(_response);
             }
         }
 
@@ -52,7 +57,9 @@ namespace todo_backend.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound();
+                _response = Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+
+                return ResponseMessage(_response);
             }
 
         }
@@ -67,7 +74,9 @@ namespace todo_backend.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound();
+                _response = Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+
+                return ResponseMessage(_response);
             }
         }
 
@@ -81,7 +90,9 @@ namespace todo_backend.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound();
+                _response = Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+
+                return ResponseMessage(_response);
             }
         }
     }

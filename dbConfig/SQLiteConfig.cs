@@ -11,6 +11,7 @@ namespace todo_backend.Models
 {
     public class SQLiteConfig: DbConfiguration
     {
+        //configuration for sqlite
         public SQLiteConfig()
         {
             SetProviderFactory("System.Data.SQLite",SQLiteFactory.Instance);

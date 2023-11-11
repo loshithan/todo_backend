@@ -20,6 +20,7 @@ namespace todo_backend.Models
         {
             ConnectionString = new SQLiteConnectionStringBuilder()
             {
+                //retrieve connection string webconfig file
                 DataSource = ConfigurationManager.ConnectionStrings["sqliteConn"].ToString(),
                 ForeignKeys = true,
 
@@ -37,7 +38,7 @@ namespace todo_backend.Models
         }
 
         
-
+        //create table naming in singular manner
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

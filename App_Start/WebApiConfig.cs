@@ -11,6 +11,8 @@ namespace todo_backend
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            //configure cors for cross platform capability
+            
             var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 

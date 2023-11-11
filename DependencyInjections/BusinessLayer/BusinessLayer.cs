@@ -6,6 +6,7 @@ using todo_backend.Models;
 
 namespace todo_backend.DependencyInjections
 {
+    //business logic for the application
     public class BusinessLayer : IBusinessLayer
     {
         private readonly IDataAccessLayer _dataAccessLayer;
@@ -13,6 +14,8 @@ namespace todo_backend.DependencyInjections
         {
             _dataAccessLayer = dataAccessLayer;
         }
+
+        //add todo
         public void AddTodo(Todo todo)
         {
             if(todo == null)
@@ -23,6 +26,7 @@ namespace todo_backend.DependencyInjections
 
         }
 
+        //edit todo
         public void EditTodo(int id, Todo todo)
         {
             if (todo == null || id==null)
@@ -32,11 +36,13 @@ namespace todo_backend.DependencyInjections
             _dataAccessLayer.UpdateTodo(id, todo);
         }
 
+        //retrieve todos
         public IEnumerable<Todo> GetAllTodo()
         {
             return _dataAccessLayer.GetTodos();
         }
 
+        //remove todo
         public void RemoveTodo(int id)
         {
             if (id == null)

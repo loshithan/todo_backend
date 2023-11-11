@@ -1,3 +1,4 @@
+using System.Net.Http;
 using System.Web.Http;
 using todo_backend.DependencyInjections;
 using todo_backend.Models;
@@ -17,6 +18,8 @@ namespace todo_backend
 
             container.RegisterType<IDataAccessLayer, DataAccessLayer>();
             container.RegisterType<IBusinessLayer, BusinessLayer>();
+            container.RegisterType<HttpResponseMessage>();
+
             container.RegisterType<TodoContext>();
 
 

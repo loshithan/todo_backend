@@ -6,6 +6,7 @@ using todo_backend.Models;
 
 namespace todo_backend.DependencyInjections
 {
+    //repository to connect database
     public class DataAccessLayer : IDataAccessLayer
     {
         private TodoContext _todoContext;
