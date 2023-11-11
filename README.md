@@ -12,7 +12,7 @@ Make change as below to kick start todo-backend
 #create connectionstring tag
 
 #replace the absolute path with your configuration as below
-<!--modify connection string accordingly-->
-  <connectionStrings>
-    <add name="sqliteConn" connectionString="C:\..\todo_backend\test.db" />
-  </connectionStrings>
+#<!--modify connection string accordingly-->
+# <connectionStrings>
+#   <add name="sqliteConn" connectionString="C:\..\todo_backend\test.db" />
+#</connectionStrings>
