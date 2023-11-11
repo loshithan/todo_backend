@@ -11,5 +11,5 @@ Make change as below to kick start todo-backend
 
 #create connectionstring tag
 
-#replace the absolute path with your configuration as below
+#replace the absolute path with your configuration in connection string attribute
 
